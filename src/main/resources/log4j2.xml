@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--日志级别以及优先级排序：OFF>FATAL>ERROR>WARN>INFO>DEBUG>TRACE>ALL-->
+<!--Configuration后面的status用于设置log4j2自身内部的信息输出，可以不设置，设置为trace时，可看到内部详细输出-->
+<Configuration status="INFO">
+    <Appenders>
+        <!--输出日志信息到控制台-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--输出格式-->
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <!--定义logger，定义了logger并一如appender，appender才生效-->
+    <!--root：用于指定项目的根日志，如果没有单独指定logger，则会使用root作为默认输出-->
+    <Loggers>
+        <Logger name="java.sql" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.apache.ibatis" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
