@@ -4,6 +4,9 @@ import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
+/**
+ * @author haydensu
+ */
 @Component
 public class Tag implements Serializable {
     private static final long serialVersionUID = 1L;

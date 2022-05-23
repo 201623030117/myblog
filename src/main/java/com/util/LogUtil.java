@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
+/**
+ * @author haydensu
+ */
 @Component
 public class LogUtil {
 
@@ -24,8 +27,13 @@ public class LogUtil {
         LogUtil.userTraceLog = userTraceLog;
     }
 
+    /**
+     * 将request对象和apiPath字符串转换为userTraceLog对象
+     * @param request 请求报文对象
+     * @param apiPath 访问路径
+     * @return
+     */
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    //将request的报文信息转换为log形式
     public static UserTraceLog convertRequest(HttpServletRequest request,String apiPath){
         UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
         Browser browser = userAgent.getBrowser();
@@ -40,7 +48,12 @@ public class LogUtil {
         return userTraceLog;
     }
 
-    //获取log所需的ip
+
+    /**
+     * 从request对象中获取ip
+     * @param request
+     * @return
+     */
     public static String getIp(HttpServletRequest request){
         String ip = request.getHeader("X-Real-IP");
         if(ip != null && ip.length() != 0 && !"unknown".equalsIgnoreCase(ip)){

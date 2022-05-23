@@ -6,6 +6,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+/**
+ * @author haydensu
+ */
 @Component
 public class UserTraceLog implements Serializable {
     private static final long serialVersionUID = 1L;

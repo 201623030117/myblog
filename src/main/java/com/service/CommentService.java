@@ -1,6 +1,14 @@
 package com.service;
 
+/**
+ * @author haydensu
+ */
 public interface CommentService {
-    //通过文章id获取评论数
+
+    /**
+     * 得到文章总数
+     * @param articleId
+     * @return
+     */
     int getNumOfCommentByArticle(int articleId);
 }

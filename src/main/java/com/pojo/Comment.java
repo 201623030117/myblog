@@ -5,6 +5,9 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * @author haydensu
+ */
 @Component
 public class Comment implements Serializable {
     private static final long serialVersionUID = 1L;

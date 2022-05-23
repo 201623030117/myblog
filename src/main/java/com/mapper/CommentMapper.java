@@ -3,7 +3,7 @@ package com.mapper;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author SuHongliang
+ * @author haydensu
  */
 @Repository
 public interface CommentMapper {

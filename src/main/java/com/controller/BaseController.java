@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 基础控制层
+ * @author haydensu
+ */
 public class BaseController {
 
     @Autowired

@@ -5,6 +5,9 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author haydensu
+ */
 @Component
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;

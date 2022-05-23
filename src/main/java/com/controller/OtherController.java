@@ -24,7 +24,7 @@ import java.util.Map;
 
 /**
  *未归类的服务控制层
- * @author SuHongliang
+ * @author haydensu
  */
 @Controller
 public class OtherController extends BaseController {
