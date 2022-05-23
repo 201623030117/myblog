@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CategoryMapper">
+
+    <resultMap id="categoryMap"  type="Category">
+        <id column="category_id" property="categoryId"/>
+        <result column="category_en" property="categoryEN"/>
+        <result column="category_cn" property="categoryCN"/>
+        <result column="used_count" property="usedCount"/>
+    </resultMap>
+
+    <sql id="base_column_list">
+        category_id,category_cn,category_en,used_count
+    </sql>
+
+    <!--Category selectByCategoryId(int categoryId);-->
+    <select id="selectByCategoryId" parameterType="int" resultMap="categoryMap">
+        select
+        <include refid="base_column_list"/>
+        from category where category_id = #{categoryId}
+    </select>
+    <!--List<Category> selectAllCategories();-->
+    <select id="selectAllCategories" resultMap="categoryMap">
+        select
+        <include refid="base_column_list"/>
+        from  category
+    </select>
+</mapper>

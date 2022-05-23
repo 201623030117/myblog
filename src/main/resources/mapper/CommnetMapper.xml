@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CommentMapper">
+    <sql id="base_column_list">
+        comment_id,article_id,author_id,author,parent_comment_id,mail_url,blog_url,ip,
+        content,created_time,user_agent
+    </sql>
+    <!--int countNumOfCommentByArticle(int articleId);-->
+    <select id="countNumOfCommentByArticle" resultType="int">
+        select count(comment_id) from comment where article_id = #{articleId}
+    </select>
+
+</mapper>

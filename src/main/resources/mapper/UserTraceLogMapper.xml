@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserTraceLogMapper">
+    <sql id="base_column_list">
+        log_id,browser_name,os_name,api_path,ip,referer,access_time,user_agent
+    </sql>
+    <!--int insertLog(UserTraceLog userTraceLog);-->
+    <insert id="insertLog" parameterType="UserTraceLog">
+        insert into user_trace_log values
+        (#{logId},#{browserName},#{osName},#{apiPath},
+        #{ip},#{referer},#{accessTime},#{userAgent})
+    </insert>
+</mapper>

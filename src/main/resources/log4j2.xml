@@ -15,10 +15,10 @@
         <Logger name="java.sql" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.apache.ibatis" level="info" additivity="false">
+        <Logger name="org.apache.ibatis" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Root level="DEBUG">
+        <Root level="debug">
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>

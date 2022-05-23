@@ -1,12 +1,11 @@
 package com.mapper;
 
-
-import com.pojo.User;
+import com.pojo.BlogSetting;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface UserMapper {
-    List<User> selectAllUser();
+public interface BlogSettingMapper {
+    List<BlogSetting> selectAllSetting();
 }

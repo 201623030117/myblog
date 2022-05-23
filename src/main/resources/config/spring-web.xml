@@ -14,30 +14,34 @@
         <context:component-scan base-package="com.controller"/>
 
         <!--配置视图解析器-->
-        <bean id="viweResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <bean id="viewResolver"  class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
             <property name="characterEncoding" value="UTF-8"/>
             <property name="order" value="1"/>
-            <property name="templateEngine">
-                <bean class="org.thymeleaf.spring5.SpringTemplateEngine">
-                    <property name="templateResolver">
-                        <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
-                            <property name="prefix" value="/WEB-INF/html/"/>
-                            <property name="suffix" value=".html"/>
-                            <property name="cacheable" value="false"/>
-                        </bean>
-                    </property>
+            <property name="templateEngine" ref="springTemplateEngine">
+            </property>
+        </bean>
+
+        <bean id="springTemplateEngine"  class="org.thymeleaf.spring5.SpringTemplateEngine">
+            <property name="templateResolver">
+                <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+                    <property name="prefix" value="/WEB-INF/html/"/>
+                    <property name="suffix" value=".html"/>
+                    <property name="cacheable" value="false"/>
+                    <property name="characterEncoding" value="UTF-8"/>
                 </bean>
             </property>
         </bean>
 
         <!--配置文件解析器-->
-        <bean id="multipartReslover" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
             <property name="defaultEncoding" value="UTF-8"/>
             <property name="maxUploadSize" value="1073741824"/>
         </bean>
 
         <!--开启默认servlet对静态资源的处理-->
         <mvc:default-servlet-handler/>
+
+
 
         <!--开启springMVC注解驱动-->
         <!-- 简化配置：
@@ -47,5 +51,5 @@
         <mvc:annotation-driven/>
 
         <!--进入服务器的跳转-->
-        <mvc:view-controller path="/" view-name="index"/>
+        <mvc:view-controller path="/" view-name="redirect:/index/1"/>
 </beans>
