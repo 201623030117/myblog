@@ -42,4 +42,11 @@ public interface ArticleMapper {
      * @return
      */
     List<Article> selectArticlesByMostViews(@Param("limit") int limit);
+
+    /**
+     * 根据tagId查询对应article
+     * @param tagId
+     * @return
+     */
+    List<Article> selectArticlesByTagId(@Param("tagId") int tagId);
 }

@@ -32,4 +32,18 @@ public interface ArticleService {
      * @return
      */
     List<Article> getArticlesByCategoryId(int categoryId);
+
+    /**
+     * 得到limit条数量的热门文章
+     * @param limit
+     * @return
+     */
+    List<Article> getHotArticles(int limit);
+
+    /**
+     * 根据tagId得到对应的article
+     * @param tagId
+     * @return
+     */
+    List<Article> getArticlesByTagId(int tagId);
 }

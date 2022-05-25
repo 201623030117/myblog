@@ -2,6 +2,8 @@ package com.service;
 
 import com.pojo.Tag;
 
+import java.util.List;
+
 /**
  * @author haydensu
  */
@@ -13,4 +15,10 @@ public interface TagService {
      * @return
      */
     Tag getTagById(int tagId);
+
+    /**
+     * 得到所有tag对象
+     * @return
+     */
+    List<Tag> getAllTags();
 }

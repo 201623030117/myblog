@@ -27,4 +27,14 @@ public class ArticleServiceImp extends BaseService implements ArticleService {
     public List<Article> getArticlesByCategoryId(int categoryId) {
         return articleMapper.selectArticlesByCategoryId(categoryId);
     }
+
+    @Override
+    public List<Article> getHotArticles(int limit) {
+        return articleMapper.selectArticlesByMostViews(limit);
+    }
+
+    @Override
+    public List<Article> getArticlesByTagId(int tagId) {
+        return articleMapper.selectArticlesByTagId(tagId);
+    }
 }

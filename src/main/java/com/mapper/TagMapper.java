@@ -23,4 +23,10 @@ public interface TagMapper {
      * @return
      */
     List<Tag> selectByArticleId(int articleId);
+
+    /**
+     * 查询所有tag对象
+     * @return
+     */
+    List<Tag> selectAllTags();
 }

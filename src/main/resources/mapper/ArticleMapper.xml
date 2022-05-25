@@ -20,17 +20,17 @@
         <collection property="tagList"
                         select="com.mapper.TagMapper.selectByArticleId"
                         column="article_id"
-                        fetchType="lazy">
+                        fetchType="eager">
         </collection>
         <collection property="category"
                         select="com.mapper.CategoryMapper.selectByCategoryId"
                         column="category_id"
-                        fetchType="lazy">
+                        fetchType="eager">
         </collection>
     </resultMap>
 
     <sql id="base_column_list">
-        article_id,category_id,author_id,title,descripetion,article_type,
+        article_id,category_id,author_id,title,description,article_type,
         content,created_time,modified_time,publish_status,commend_status,password,views,comments_num
     </sql>
     <!--int countNumOfArticle();-->
@@ -39,15 +39,34 @@
     </select>
     <!--List<Article> selectAllArticles();-->
     <select id="selectAllArticles" resultMap="articleMap">
-        select * from article
+        select
+        <include refid="base_column_list"/> 
+        from article
     </select>
     <!--List<Article> selectCommendArticles();-->
     <select id="selectCommendArticles" resultMap="articleMap">
-        select * from article where publish_status = 'publish'
+        select
+        <include refid="base_column_list"/>
+        from article where publish_status = 'publish'
     </select>
     <!--List<Article> selectArticlesByCategoryId(int categoryId);-->
     <select id="selectArticlesByCategoryId" parameterType="int" resultMap="articleMap">
-        select * from article where category_id = #{categoryId}
+        select
+        <include refid="base_column_list"/>
+        from article where category_id = #{categoryId}
+    </select>
+    <!--List<Article> selectArticlesByMostViews(@Param("limit") int limit);-->
+    <select id="selectArticlesByMostViews" resultMap="articleMap">
+        select
+        <include refid="base_column_list"/>
+        from article order by views DESC limit #{limit}
+    </select>
+    <!--List<Article> selectArticlesByTagId(@Param("tagId") int tagId);-->
+    <select id="selectArticlesByTagId" resultMap="articleMap">
+        select
+        <include refid="base_column_list"/>
+        from article left join article_tag on article_id = a_id
+        where t_id = #{tagId}
     </select>
 
 </mapper>
