@@ -72,7 +72,8 @@ dependencies {
     implementation group: 'eu.bitwalker', name: 'UserAgentUtils', version: '1.21'
     //thymeleaf视图解析java8时间支持    
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
-
+    //json java8time支持
+    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.12.5'
 
 
 }

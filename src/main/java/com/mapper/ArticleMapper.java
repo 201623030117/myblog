@@ -35,4 +35,11 @@ public interface ArticleMapper {
      * @return
      */
     List<Article> selectArticlesByCategoryId(@Param("categoryId") int categoryId);
+
+    /**
+     * 查询浏览量最多的前limit条数据
+     * @param limit 查询的数据行限制
+     * @return
+     */
+    List<Article> selectArticlesByMostViews(@Param("limit") int limit);
 }
